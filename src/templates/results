@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Secret Kitty</title>
+    <title>Good Luck Kitty</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -13,21 +13,22 @@
   </head>
   <body>
     <div class="jumbotron">
-      <h1 class="display-3"><a href="/kitty" target="_top">Secret Kitty</a></h1>
-      <p>Eat the cake and find the kitty to be rewarded with luck and prosperity for 2022!</p>
+      <h1 class="display-3"><a href="/kitty" target="_top">Good Luck Kitty</a></h1>
+      <p>Eat the cake. Find the kitty to be rewarded with luck and prosperity for 2022!</p>
     </div>
     <div class="container">
       <div class="content">
         <div>
           {% if winner %}
             <h3>Congrats {{ current_user.title() }}!</h3>
-            <p>You have found the secret kitty. May the kitty bring you luck and prosperity for 2020!</p>
-            <p>Look for the kitty to arrive via mail soon.</p>
+            <p>You have found the Good Luck Kitty. May the kitty bring you luck and prosperity for 2022!</p>
+            <p>Look for the kitty to arrive via mail soon... Happy New Year!</p>
             <br />
             <img src="/static/images/kitty.jpg" alt="kitty">
           {% else %}
             <h3>Maybe next year!</h3>
-            <p>{{ current_user.title() }}, you have not found the secret kitty for 2022.</p>
+            <p>{{ current_user.title() }}, you have not found the Good Luck Kitty for 2022.</p>
+            <p>{{ winner_name.title() }} found the 2022 Good Luck Kitty! Happy New Year!</p>
             <img src="/static/images/crumbs.jpg" alt="crumbs">
           {% endif %}
           <br />

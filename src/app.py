@@ -42,7 +42,8 @@ def user_loader(username):
     users = get_players()
     logger.info(users)
     if username not in users:
-      add_user(username)
+      #add_user(username)
+      return
 
     user = User()
     user.id = username
@@ -55,7 +56,7 @@ def request_loader(request):
     users = get_players()
 
     if username not in users:
-      add_user(username)
+      return
 
     user = User()
     user.id = username
@@ -69,7 +70,19 @@ def healthz():
 @flask_login.login_required
 def kitty():
   current_user = flask_login.current_user.id
-  return render_template('kitty', current_user=current_user)
+  r.lpush('logged_in', current_user)
+  drawing = False
+  try:
+    winner_name = r.lrange('winner', 0, 0)
+    if len(winner_name) > 0:
+      drawing = True
+  except:
+     drawing = False
+
+  if drawing:
+    return render_template('kitty', current_user=current_user)
+  else:
+    return render_template('waiting', current_user=current_user)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -94,20 +107,28 @@ def logout():
 def results():
   current_user = flask_login.current_user.id
   winner = False
+  winner_name = ""
   try:
       winner_name = r.lrange('winner', 0, 0)
       if winner_name[0].lower() == current_user.lower():
           winner = True
   except:
     return render_template('waiting', current_user=current_user)
-  return render_template('results', current_user=current_user, winner=winner)
+  return render_template('results', current_user=current_user, winner=winner, winner_name=winner_name[0])
 
 @app.route('/drawing', methods=['GET'])
 @flask_login.login_required
 def drawing():
   players = get_players()
   winner = random.choice(players)
+  logger.info(f"Good Luck Kitty Winner: {winner}")
   r.lpush('winner', winner)
+  return jsonify({'winner':winner}), 200, {'ContentType':'application/json'}
+
+@app.route('/winner', methods=['GET'])
+@flask_login.login_required
+def winner():
+  winner = r.lrange('winner', 0, 0)
   return jsonify({'winner':winner}), 200, {'ContentType':'application/json'}
 
 if __name__ == "__main__":

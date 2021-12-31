@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Secret Kitty</title>
+    <title>Good Luck Kitty</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -13,8 +13,8 @@
   </head>
   <body>
     <div class="jumbotron">
-      <h1 class="display-3"><a href="/kitty" target="_top">Secret Kitty</a></h1>
-      <p>Eat the cake and find the kitty to be rewarded with luck and prosperity for 2022!</p>
+      <h1 class="display-3"><a href="/kitty" target="_top">Good Luck Kitty</a></h1>
+      <p>Eat the cake. Find the kitty to be rewarded with luck and prosperity for 2022!</p>
     </div>
     <div class="container">
       <div class="content">
