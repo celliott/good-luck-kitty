@@ -1,0 +1,36 @@
+body {
+  background-color: #FFF5EE;
+}
+h1 {
+  color: #ce6681;
+  font-family: 'Luckiest Guy', cursive;
+}
+h1 a {
+  color: #ce6681;
+  font-family: 'Luckiest Guy', cursive;
+}
+h1 a:hover {
+  color: #ce6681;
+  text-decoration: none;
+}
+img {
+  max-width:100%;
+  max-height:100%;
+}
+.welcome {
+  padding: 20px 0 0 0 ;
+}
+.jumbotron {
+  background-color: #b0d6e3;
+}
+.btn {
+  width:100%;
+  margin-bottom: 20px;
+}
+.container {
+  max-width:500px;
+}
+.form-group {
+  max-width:100%;
+  max-height:100%;
+}
